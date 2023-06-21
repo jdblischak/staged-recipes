@@ -1,0 +1,44 @@
+{% set name = "azure-core-cpp" %}
+{% set version = "1.10.0" %}
+{% set sha256 = "e6ae26ad30376bef6272024564764ba7bf5756063dc94cc4b74180cd004ab75e" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/Azure/azure-sdk-for-cpp/archive/refs/tags/azure-core_{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+
+requirements:
+  build:
+    # If your project compiles code (such as a C extension) then add the required compilers as separate entries here.
+    # Compilers are named 'c', 'cxx' and 'fortran'.
+    - {{ compiler('cxx') }}
+    - cmake
+  host:
+    - azure-uamqp-c
+    - curl
+    - libxml2  # [not win]
+    - openssl
+  run:
+    - azure-uamqp-c
+    - curl
+    - libxml2  # [not win]
+    - openssl
+
+about:
+  home: https://github.com/Azure/azure-sdk-for-cpp/
+  summary: 'Azure SDK for C++: Azure Core library'
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE.txt
+  doc_url: https://azure.github.io/azure-sdk-for-cpp/
+  dev_url: https://github.com/Azure/azure-sdk-for-cpp/
+
+extra:
+  recipe-maintainers:
+    - jdblischak
