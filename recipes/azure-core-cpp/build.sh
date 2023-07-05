@@ -9,5 +9,5 @@ export AZURE_SDK_DISABLE_AUTO_VCPKG=ON
 # https://github.com/Azure/azure-sdk-for-cpp/blob/main/CONTRIBUTING.md#building-the-project
 mkdir build
 cd build
-cmake ..
+cmake $CMAKE_ARGS ..
 cmake --build . --target install --config Release
