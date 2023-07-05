@@ -17,6 +17,7 @@ requirements:
   build:
     - {{ compiler('cxx') }}
     - cmake
+    - make  # [not win]
   host:
     - curl
     - openssl  # [not win]
