@@ -1,6 +1,6 @@
 @echo on
 
-set "export AZURE_SDK_DISABLE_AUTO_VCPKG=ON"
+set "AZURE_SDK_DISABLE_AUTO_VCPKG=ON"
 
 mkdir build
 cd build
