@@ -17,5 +17,5 @@ cd sdk/storage/azure-storage-common
 # https://github.com/Azure/azure-sdk-for-cpp/blob/main/CONTRIBUTING.md#building-the-project
 mkdir build
 cd build
-cmake $CMAKE_ARGS ..
+cmake $CMAKE_ARGS -D BUILD_TRANSPORT_CURL=ON ..
 cmake --build . --target install --config Release
