@@ -13,7 +13,7 @@ source:
 build:
   number: 0
   run_exports:
-    - {{ pin_subpackage("aws-core-cpp", max_pin="x.x.x") }}
+    - {{ pin_subpackage("azure-core-cpp", max_pin="x.x.x") }}
 
 requirements:
   build:
