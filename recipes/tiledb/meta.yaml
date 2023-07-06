@@ -37,6 +37,7 @@ requirements:
     - libcurl    # [gcs == 'gcs_enabled' and win]
     - azure-identity-cpp
     - azure-storage-blobs-cpp
+    - xz
 test:
   #  downstreams:
   #  - tiledb-py
