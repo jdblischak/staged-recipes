@@ -24,9 +24,11 @@ requirements:
   host:
     - curl
     - openssl  # [not win]
+    - wil  # [win]
   run:
     - curl
     - openssl  # [not win]
+    - wil  # [win]
 
 about:
   home: https://github.com/Azure/azure-sdk-for-cpp/
