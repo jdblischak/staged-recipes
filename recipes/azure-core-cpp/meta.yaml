@@ -1,4 +1,4 @@
-{% set name = "azure-core-cpp" %}
+{% set name = "azure-sdk-for-cpp" %}
 {% set version = "1.10.0" %}
 {% set sha256 = "e6ae26ad30376bef6272024564764ba7bf5756063dc94cc4b74180cd004ab75e" %}
 
@@ -12,24 +12,63 @@ source:
 
 build:
   number: 0
-  run_exports:
-    - {{ pin_subpackage("azure-core-cpp", max_pin="x.x.x") }}
 
-requirements:
-  build:
-    - {{ compiler('cxx') }}
-    - cmake
-    - make  # [not win]
-  host:
-    - curl
-    - openssl  # [not win]
-  run:
-    - curl
-    - openssl  # [not win]
+outputs:
+  - name: azure-core-cpp
+    script: build.sh  # [unix]
+    script: bld.bat  # [win]
+    build:
+      run_exports:
+        - {{ pin_subpackage("azure-core-cpp", exact=True) }}
+    requirements:
+      build:
+        - {{ compiler("cxx") }}
+        - cmake
+        - make  # [not win]
+      host:
+        - curl
+        - openssl  # [not win]
+      run:
+        - curl
+        - openssl  # [not win]
+    about:
+      home: https://github.com/Azure/azure-sdk-for-cpp/
+      summary: "Azure SDK for C++: Azure Core library"
+      license: MIT
+      license_family: MIT
+      license_file:
+        - LICENSE.txt
+        - sdk/core/azure-core/NOTICE.txt
+      doc_url: https://azure.github.io/azure-sdk-for-cpp/
+      dev_url: https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/core/azure-core
+  - name: azure-identity-cpp
+    script: build-identity.sh  # [unix]
+    script: bld-identity.bat  # [win]
+    requirements:
+      build:
+        - {{ compiler("cxx") }}
+        - cmake
+        - make  # [not win]
+      host:
+        - {{ pin_subpackage("azure-core-cpp", exact=True) }}
+        - openssl
+      run:
+        - {{ pin_subpackage("azure-core-cpp", exact=True) }}
+        - openssl
+    about:
+      home: https://github.com/Azure/azure-sdk-for-cpp/
+      summary: "Azure SDK for C++: Azure Identity client library for C++"
+      license: MIT
+      license_family: MIT
+      license_file:
+        - LICENSE.txt
+        - sdk/identity/azure-identity/NOTICE.txt
+      doc_url: https://azure.github.io/azure-sdk-for-cpp/
+      dev_url: https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/identity/azure-identity
 
 about:
   home: https://github.com/Azure/azure-sdk-for-cpp/
-  summary: 'Azure SDK for C++: Azure Core library'
+  summary: "Azure SDK for C++ meta-package"
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
