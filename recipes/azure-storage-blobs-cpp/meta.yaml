@@ -1,0 +1,46 @@
+{% set name = "azure-storage-blobs-cpp" %}
+{% set version = "12.7.0" %}
+{% set sha256 = "a28a665c740ae510053afa2c9b794052aa4de11d122b3ac4eaa0bb3bccb8983e" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/Azure/azure-sdk-for-cpp/archive/refs/tags/azure-storage-blobs_{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+
+requirements:
+  build:
+    - {{ compiler("cxx") }}
+    - cmake
+    - make  # [not win]
+    - ninja  # [win]
+  host:
+    - azure-storage-common-cpp >=12.3.1
+  run:
+    - azure-storage-common-cpp >=12.3.1
+
+about:
+  home: https://github.com/Azure/azure-sdk-for-cpp/
+  summary: "Azure SDK for C++: Azure Storage Common Client Library for C++"
+  description: >-
+    Azure Storage is a Microsoft-managed service providing cloud storage that is
+    highly available, secure, durable, scalable, and redundant. Azure Storage
+    includes Azure Blobs (objects), Azure Data Lake Storage Gen2, Azure Files,
+    and Azure Queues. The Azure Storage Common library provides infrastructure
+    shared by the other Azure Storage client libraries.
+  license: MIT
+  license_family: MIT
+  license_file:
+    - LICENSE.txt
+    - sdk/storage/azure-storage-blobs/NOTICE.txt
+  doc_url: https://azure.github.io/azure-sdk-for-cpp/
+  dev_url: https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-blobs/
+
+extra:
+  recipe-maintainers:
+    - jdblischak
