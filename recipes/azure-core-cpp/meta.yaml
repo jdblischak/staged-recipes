@@ -17,7 +17,7 @@ build:
 
 requirements:
   build:
-    - {{ compiler('cxx') }}
+    - {{ compiler("cxx") }}
     - cmake
     - make  # [not win]
     - ninja  # [win]
@@ -30,10 +30,12 @@ requirements:
 
 about:
   home: https://github.com/Azure/azure-sdk-for-cpp/
-  summary: 'Azure SDK for C++: Azure Core library'
+  summary: "Azure SDK for C++: Azure Core library"
   license: MIT
   license_family: MIT
-  license_file: LICENSE.txt
+  license_file:
+    - LICENSE.txt
+    - sdk/core/azure-core/NOTICE.txt
   doc_url: https://azure.github.io/azure-sdk-for-cpp/
   dev_url: https://github.com/Azure/azure-sdk-for-cpp/
 
