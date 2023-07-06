@@ -20,11 +20,11 @@ requirements:
     - make  # [not win]
     - ninja  # [win]
   host:
-    - curl
+    - libcurl
     - openssl  # [not win]
     - wil  # [win]
   run:
-    - curl
+    - libcurl
     - openssl  # [not win]
     - wil  # [win]
 
