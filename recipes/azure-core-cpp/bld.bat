@@ -6,7 +6,10 @@ cd sdk\core\azure-core
 
 mkdir build
 cd build
-cmake %CMAKE_ARGS% -D BUILD_TRANSPORT_WINHTTP=ON ..
+cmake %CMAKE_ARGS% ^
+  -G "Ninja" ^
+  -D BUILD_TRANSPORT_WINHTTP=ON ^
+  ..
 if %ERRORLEVEL% neq 0 exit 1
 
 cmake --build . --target install --config Release
