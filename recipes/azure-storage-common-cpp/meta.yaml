@@ -31,7 +31,7 @@ requirements:
 test:
   commands:
     - test -f "${PREFIX}/include/azure/storage/common/access_conditions.hpp"  # [not win]
-    - test -f "${PREFIX}/lib/libazure-storage-common.${SHLIB_EXT}"  # [not win]
+    - test -f "${PREFIX}/lib/libazure-storage-common${SHLIB_EXT}"  # [not win]
     - test -f "${PREFIX}/share/azure-storage-common-cpp/azure-storage-common-cppTargets.cmake"  # [not win]
     - if not exist %PREFIX%\\Library\\bin\\azure-storage-common.dll exit 1  # [win]
     - if not exist %PREFIX%\\Library\\include\\azure\\storage\\common\\access_conditions.hpp exit 1  # [win]

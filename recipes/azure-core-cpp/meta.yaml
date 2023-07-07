@@ -31,7 +31,7 @@ requirements:
 test:
   commands:
     - test -f "${PREFIX}/include/azure/core.hpp"  # [not win]
-    - test -f "${PREFIX}/lib/libazure-core.${SHLIB_EXT}"  # [not win]
+    - test -f "${PREFIX}/lib/libazure-core${SHLIB_EXT}"  # [not win]
     - test -f "${PREFIX}/share/azure-core-cpp/azure-core-cppTargets.cmake"  # [not win]
     - if not exist %PREFIX%\\Library\\bin\\azure-core.dll exit 1  # [win]
     - if not exist %PREFIX%\\Library\\include\\azure\\core.hpp exit 1  # [win]

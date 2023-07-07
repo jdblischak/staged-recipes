@@ -29,7 +29,7 @@ requirements:
 test:
   commands:
     - test -f "${PREFIX}/include/azure/identity.hpp"  # [not win]
-    - test -f "${PREFIX}/lib/libazure-identity.${SHLIB_EXT}"  # [not win]
+    - test -f "${PREFIX}/lib/libazure-identity${SHLIB_EXT}"  # [not win]
     - test -f "${PREFIX}/share/azure-identity-cpp/azure-identity-cppTargets.cmake"  # [not win]
     - if not exist %PREFIX%\\Library\\bin\\azure-identity.dll exit 1  # [win]
     - if not exist %PREFIX%\\Library\\include\\azure\\identity.hpp exit 1  # [win]
