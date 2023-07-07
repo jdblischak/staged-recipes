@@ -41,6 +41,7 @@ requirements:
     - libcurl    # [gcs == 'gcs_enabled' and win]
     - azure-identity-cpp
     - azure-storage-blobs-cpp
+    - libxml2
     - xz
 test:
   #  downstreams:
