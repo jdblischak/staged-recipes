@@ -25,15 +25,24 @@ requirements:
     - azure-core-cpp
     - azure-storage-common-cpp >=12.3.1
 
+test:
+  commands:
+    - test -f "${PREFIX}/include/azure/storage/blobs/append_blob_client.hpp"  # [not win]
+    - test -f "${PREFIX}/lib/libazure-storage-blobs.${SHLIB_EXT}"  # [not win]
+    - test -f "${PREFIX}/share/azure-storage-blobs-cpp/azure-storage-blobs-cppTargets.cmake"  # [not win]
+    - if not exist %PREFIX%\\Library\\bin\\azure-storage-blobs.dll exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\include\\azure\\storage\\blobs\\append_blob_client.hpp exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\lib\\azure-storage-blobs.lib exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\share\\azure-storage-blobs-cpp\\azure-storage-blobs-cppTargets.cmake exit 1  # [win]
+
 about:
   home: https://github.com/Azure/azure-sdk-for-cpp/
-  summary: "Azure SDK for C++: Azure Storage Common Client Library for C++"
+  summary: Azure Storage Blobs Client Library for C++
   description: >-
-    Azure Storage is a Microsoft-managed service providing cloud storage that is
-    highly available, secure, durable, scalable, and redundant. Azure Storage
-    includes Azure Blobs (objects), Azure Data Lake Storage Gen2, Azure Files,
-    and Azure Queues. The Azure Storage Common library provides infrastructure
-    shared by the other Azure Storage client libraries.
+    Azure Blob storage is Microsoft's object storage solution for the cloud.
+    Blob storage is optimized for storing massive amounts of unstructured data.
+    Unstructured data is data that does not adhere to a particular data model or
+    definition, such as text or binary data.
   license: MIT
   license_family: MIT
   license_file:
@@ -45,3 +54,4 @@ about:
 extra:
   recipe-maintainers:
     - jdblischak
+    - Shelnutt2

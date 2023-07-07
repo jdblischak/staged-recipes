@@ -28,9 +28,19 @@ requirements:
     - libxml2  # [not win]
     - openssl  # [not win]
 
+test:
+  commands:
+    - test -f "${PREFIX}/include/azure/storage/common/access_conditions.hpp"  # [not win]
+    - test -f "${PREFIX}/lib/libazure-storage-common.${SHLIB_EXT}"  # [not win]
+    - test -f "${PREFIX}/share/azure-storage-common-cpp/azure-storage-common-cppTargets.cmake"  # [not win]
+    - if not exist %PREFIX%\\Library\\bin\\azure-storage-common.dll exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\include\\azure\\storage\\common\\access_conditions.hpp exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\lib\\azure-storage-common.lib exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\share\\azure-storage-common-cpp\\azure-storage-common-cppTargets.cmake exit 1  # [win]
+
 about:
   home: https://github.com/Azure/azure-sdk-for-cpp/
-  summary: "Azure SDK for C++: Azure Storage Common Client Library for C++"
+  summary: Azure Storage Common Client Library for C++
   description: >-
     Azure Storage is a Microsoft-managed service providing cloud storage that is
     highly available, secure, durable, scalable, and redundant. Azure Storage
@@ -48,3 +58,4 @@ about:
 extra:
   recipe-maintainers:
     - jdblischak
+    - Shelnutt2
